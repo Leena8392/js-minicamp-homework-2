@@ -1,11 +1,25 @@
 //Do not change any of the function names
 
 function getBiggest(x, y) {
+  if(x >= y && y <= x){
+     return x;
+  }
+  return y;
   //x and y are integers.  Return the larger integer
   //if they are the same return either one
 }
+getBiggest(8,9);
 
 function greeting(language) {
+  switch(language){
+    case 'German':
+    return 'Guten Tag!';
+    case 'English':
+    return 'Hello!';   
+    case 'Spanish':
+    return 'Hola!';
+ }
+ return 'Hello!';
   //return a greeting for three different languages:
   //language: 'German' -> 'Guten Tag!'
   //language: 'English' -> 'Hello!'
@@ -13,16 +27,26 @@ function greeting(language) {
   //if language is undefined return 'Hello!'
 }
 
+
 function isTenOrFive(num) {
   //return true if num is 10 or 5
   //otherwise return false
+  if(num === 10 || num === 5){
+    return true;
+  }
+  return false;
 }
 
 function isInRange(num) {
+  if(num < 50 && num > 20){
+    return true;
+  }
+  return false;
   //return true if num is less than 50 and greater than 20
 }
 
 function isInteger(num) {
+  return num === Math.floor(num);
   //return true if num is an integer
   //0.8 -> false
   //1 -> true
@@ -32,6 +56,14 @@ function isInteger(num) {
 }
 
 function fizzBuzz(num) {
+  if(num % 3 === 0 && num % 5 === 0){
+    return 'fizzbuzz';
+  }else if (num % 3 === 0){
+    return 'fizz';
+  }else if(num % 5 === 0){
+    return 'buzz';
+  } else
+  return num;
   //if num is divisible by 3 return 'fizz'
   //if num is divisible by 5 return 'buzz'
   //if num is divisible by 3 & 5 return 'fizzbuzz'
@@ -44,17 +76,31 @@ function isPrime(num) {
   //hint: a prime number is only evenly divisible by itself and 1
   //hint2: you can solve this using a for loop
   //note: 0 and 1 are NOT considered prime numbers
+  if (num < 2) {
+        return false;
+    }
+    for (var i = 2; i < num; i++) {
+        if (num % i === 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }
 
 function returnFirst(arr) {
+  return arr[0];
   //return the first item from the array
 }
 
 function returnLast(arr) {
+  return arr[arr.length - 1];
   //return the last item of the array
 }
 
 function getArrayLength(arr) {
+  return arr.length;
   //return the length of the array
 }
 
@@ -62,9 +108,18 @@ function incrementByOne(arr) {
   //arr is an array of integers  
   //increase each integer by one
   //return the array
+  var newarr = [];
+  for(var i = 0; i < arr.length; i++){
+    newarr.push(arr[i] + 1);
+
+  }
+  return newarr;
 }
 
 function addItemToArray(arr, item) {
+  var newarr = arr;
+  newarr.push(item);
+  return newarr;
   //add the item to the end of the array
   //return the array
 }
@@ -73,9 +128,13 @@ function addItemToFront(arr, item) {
   //add the item to the front of the array
   //return the array
   //hint: use the array method .unshift
+  var newarr = arr;
+  newarr.unshift(item);
+  return newarr;
 }
 
 function wordsToSentence(words) {
+  return words.join(' ');
   //words is an array of strings
   //return a string that is all of the words concatenated together
   //spaces need to be between each word
@@ -85,21 +144,47 @@ function wordsToSentence(words) {
 function contains(arr, item) {
   //check to see if item is inside of arr
   //return true if it is, otherwise return false
+  for(var i = 0; i < arr.length; i++){
+  if(arr[i] === item){
+    return true;
+   }
+  }
+  return false;
+  
 }
 
 function addNumbers(numbers) {
   //numbers is an array of integers.
   //add all of the integers and return the value
+  var addnumber = 0;
+  for(var i = 0; i < numbers.length; i++){
+    addnumber = addnumber + numbers[i];
+  }
+  return addnumber;
 }
 
 function averageTestScore(testScores) {
   //testScores is an array.  Iterate over testScores and compute the average.
   //return the average
+  var score = 0;
+  for(var i =0; i < testScores.length; i++){
+    score += testScores[i];
+  }
+  var average = score / testScores.length;
+  return average;
 }
 
 function largestNumber(numbers) {
   //numbers is an array of integers
   //return the largest integer
+  var largest = 0;
+  for(var i = 0; i < numbers.length; i++){
+    if(numbers[i] > largest){
+       largest = numbers[i];
+    }
+  }
+      return largest;
+
 }
 
 //Do not modify code below this line.
